@@ -1,0 +1,41 @@
+
+<!--Ei mama, nao sei como fazer pra voltar o role anterior, isso vai ser mudado onde ta "Sua Conta", na linha
+ 35-->
+
+<meta charset="UTF-8">
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+	window.onload=function teste(){
+		var cliente = localStorage.getItem("currentUser");
+		var obCli = JSON.parse(cliente);
+
+		
+		document.getElementById("teste").innerText = obCli.Nome;
+
+	}
+</script>
+
+
+<body>
+
+<div class="logado" id="logado">
+
+	<label id="teste">teste </label>
+	<!--Aqui vai entrar o nome do cidadao logado, e um botao pra deslogar-->
+	
+</div>
+<button onclick="logout()">Sair</a>
+</body>
+
+<script type="text/javascript">
+	
+	function logout(){
+		localStorage.removeItem('currentUser');
+		document.getElementById("teste").innerText = "Sua Conta";
+
+	}
+
+</script>
+

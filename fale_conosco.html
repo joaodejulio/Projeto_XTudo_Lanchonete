@@ -1,0 +1,72 @@
+<section id="mu-contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mu-contact-area">
+
+            <div class="mu-title">
+              <h2>Fale conosco</h2>
+            </div>
+
+            <div class="mu-contact-content">
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="mu-contact-left">
+                    <!-- Email message div -->
+                    <div id="form-messages"></div>
+                    <!-- Start contact form -->
+                    <form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
+                      <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                      </div>                      
+                      <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Mensagem</label>                        
+                        <textarea class="form-control" id="message" name="message"  cols="30" rows="10" placeholder="Type Your Message" required></textarea>
+                      </div>                      
+                      <button type="submit" class="mu-send-btn">Send Message</button>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="mu-contact-right">
+                    <div class="mu-contact-widget">
+                      <h3>Endereço</h3>
+                      <p>Cadastre seu currículo ou nos envie suas críticas, sugestões e elogios.</p>
+                      <address>
+                        <p><i class="fa fa-phone"></i> <a href="tel: +551535213056">(15) 3521-3056</a> /
+                        <a href="https://wa.me/5515997422225"><span class=f"a fa-whatsapp">(15) 997-422-225</span></a>
+                         
+                        <p><i class="fa fa-envelope-o"></i><a href="mailto:renanfrancisco.on@gmail.com">renanfrancisco.on@gmail.com</a></p>
+                        <p><i class="fa fa-map-marker"></i>Rua Itaí, nº 496, Vila Nova - Itapeva/São Paulo - Brasil</p>
+                      </address>
+                    </div>
+                    <div class="mu-contact-widget">
+                      <h3>Horário de funcionamento</h3>                      
+                      <address>
+                        <p><span>Terça à Domingo</span> 17h30 - 00h00</p>
+                      </address>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<script type="text/javascript">
+  $('html, body').animate({scrollTop:0}, 'slow'); 
+</script>

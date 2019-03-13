@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
+
+    <title>Lanchonete X-Tudo | Itapeva-SP</title>
+
+    <meta name="author" content="Rafael G., João Pedro, Renan F.">
+    <meta name="description" content="Faça seu pedido online! Horário de funcionamento: Terça à Domingo, 17h30 à 00h00">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Font awesome -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">   
+    <!-- Slick slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slick.css">    
+    <!-- Date Picker -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datepicker.css">   
+     <!-- Gallery Lightbox -->
+    <link href="assets/css/magnific-popup.css" rel="stylesheet"> 
+    <!-- Theme color -->
+    <link id="switcher" href="assets/css/cores.css" rel="stylesheet">     
+    
+    <!--LocalStorage-->
+    <script type="text/javascript" src="localstorage.js"></script>
+
+    <script type="text/javascript" src="carrinho.js"></script>
+
+    <!-- Main style sheet -->
+    <link href="assets/css/style.css" rel="stylesheet">    
+   
+    <!-- Google Fonts -->
+
+    <!-- Prata for body  -->
+    <link href='https://fonts.googleapis.com/css?family=Prata' rel='stylesheet' type='text/css'>
+    <!-- Tangerine for small title -->
+    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>   
+    <!-- Open Sans for title -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
+  </head>
+
+  <body>
+
+  <!-- Start header section -->
+  <header id="mu-header">  
+    <nav class="navbar navbar-default mu-main-navbar" role="navigation">  
+      <div class="container">
+        <div class="navbar-header">
+          <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- LOGO -->       
+          <a class="navbar-brand img-responsive" href="index.html"><img src="assets/img/logo2.png"></a>
+ 
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul id="top-menu menu" class="nav navbar-nav navbar-right mu-main-nav">
+            <li><a href="index.html">HOME</a></li>         
+            <li><a onclick="return false;" href="cardapio.html" class="buscarPagina">CARDÁPIO</a></li>
+            <li><a onclick="return false;" href="fale_conosco.html" class="buscarPagina">FALE CONOSCO</a></li> 
+            <li><a href="#" data-toggle="modal" data-target="#ModalLogin"><span class="glyphicon glyphicon-user"></span>Sua Conta</a></li>
+            <li><a href="carrinho.html"  onclick="listaCar();"><span class="glyphicon glyphicon-shopping-cart"></span> Pedido</a></li>
+          </ul>                            
+        </div><!--/.nav-collapse -->       
+      </div>          
+    </nav> 
+  </header>
+  <!-- End header section -->
+ 
+<!-- Modal Login-->
+  <div class="modal fade" id="ModalLogin">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+        	<button type="button" class="close" data-dismiss="modal">&times;</button>
+        	<h4 class="modal-title text-center">Login</h4>
+          
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+                  <div class="col-xs-6">
+                      <div class="well">
+                        <!--action="/login/"-->
+                          <form id="loginForm" method="POST"  novalidate="novalidate">
+                              <div class="form-group">
+                                  <label for="username" class="control-label">Nome de Usuário</label>
+                                  <input type="text" class="form-control" id="username" name="username" value="" required="" title="Insira seu nome de usuário" placeholder="example@gmail.com">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div class="form-group">
+                                  <label for="pw" class="control-label">Senha</label>
+                                  <input type="password" class="form-control" id="pw" name="pw" value="" required title="Digite sua senha">
+                                  <span class="help-block"></span>
+                              </div>
+                              <div id="loginErrorMsg" class="alert alert-error hide">Nome de usuário ou senha incorretos!</div>
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" id="remember">Lembrar
+                                  </label>
+                                  <p class="help-block">(Apenas em computadores privativos)</p>
+                              </div>
+                              <!--onClick="logar()" no botao entrar-->
+                              <button type="submit" class="btn btn-success btn-block" onClick="logar()">Entrar</button>
+                              <a href="/forgot/" class="btn btn-default btn-block">Esqueceu a senha?</a>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-xs-6">
+                      <p class="lead">Registre-se e <span class="text-success">Faça seu pedido agora!</span></p>
+                      <ul class="list-unstyled" style="line-height: 2">
+                          <li><span class="fa fa-check text-success"></span> Compre online!</li>
+                          <li><span class="fa fa-check text-success"></span> Pague com seu cartão de crédito ou débito!</li>
+                      </ul>
+                      <button href="*" class="mu-send-btn" data-toggle="modal" data-target="#ModalCadastro" data-dismiss="modal"></span>Registrar-se</button>
+
+                  </div>
+              </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+        </div>        
+      </div>
+    </div>
+  </div>
+<!--End Modal Login-->
+
+
+  <div id="content">
+
+  <!-- Start slider  -->
+  <section id="mu-slider">
+    <div class="mu-slider-area"> 
+
+      <!-- Top slider -->
+      <div class="mu-top-slider">
+
+        <!-- Top slider single slide -->
+        <div class="mu-top-slider-single">
+          <img src="assets/img/slider/1.png" alt="img">
+          <!-- Top slider content -->
+          <div class="mu-top-slider-content">
+            <span class="mu-slider-small-title">Bem Vindo à</span>
+            <h2 class="mu-slider-title">Lanchonete X-Tudo</h2>
+            <p>Faça seu <a onclick="return false;" href="cardapio.html" class="buscarPagina pedid">pedido online!</a></p>  
+          </div>
+          <!-- / Top slider content -->
+        </div>
+        <!-- / Top slider single slide -->    
+     </div>
+    </div>
+  </section>
+  <!-- End slider  -->
+
+  </div>
+
+  <!-- Start Map section -->
+  <section id="mu-map">
+    <iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=pb&amp;q=Lanchonete%20X-Tudo%2C%20496%2C%20R.%20Itai%20-%20Vila%20Nova%2C%20Itapeva%20-%20SP+(T%C3%ADtulo)&amp;ie=UTF8&amp;t=&amp;z=16&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+  </section>
+  <!-- End Map section -->
+
+  <!-- Start Footer -->
+  <footer id="mu-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        <div class="mu-footer-area">
+           <div class="mu-footer-social">
+            <a href="https://www.facebook.com/LanchoneteXTudo/?ref=br_rs"><span class="fa fa-facebook"></span></a>
+            <a href="https://wa.me/5515997422225"><span class="fa fa-whatsapp"></span></a>
+          </div>
+          <div class="mu-footer-copyright">            
+            <p><small>Desenvolvido por
+            <a href="mailto:renanfrancisco.on@gmail.com">João Pedro</a>,
+            <a href="mailto:renanfrancisco.on@gmail.com">Rafael</a> e
+            <a href="mailto:renanfrancisco.on@gmail.com">Renan</a>.<br>
+            &copy; Copyright 2018.<a rel="nofollow" href="politica_de_privacidade.html"> Políticas de Privacidade</a>.<br>
+            <a rel="nofollow" href="sitemap.xml">Mapa do site</a>.
+            </small></p>          
+          </div>         
+        </div>
+      </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+  
+  <!-- jQuery library -->
+  <script src="assets/js/jquery.min.js"></script>  
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="assets/js/bootstrap.js"></script>   
+  <!-- Slick slider -->
+  <script type="text/javascript" src="assets/js/slick.js"></script>
+  <!-- Counter -->
+  <script type="text/javascript" src="assets/js/simple-animated-counter.js"></script>
+  <!-- Gallery Lightbox -->
+  <script type="text/javascript" src="assets/js/jquery.magnific-popup.min.js"></script>
+  <!-- Date Picker -->
+  <script type="text/javascript" src="assets/js/bootstrap-datepicker.js"></script> 
+  <!-- Ajax contact form  -->
+  <script type="text/javascript" src="assets/js/app.js"></script>
+ 
+  <!-- Custom js -->
+  <script src="assets/js/custom.js"></script>
+
+  <!-- > Importanto a bliblioteca jquery< -->
+  <script src="assets/js/jquery-2.1.3.js"></script>
+  <script LANGUAGE="JAVASCRIPT">
+  $(document).ready(function(){
+    
+    $(".buscarPagina").click(function(){
+
+      //Aqui estau retirando o conteudo da propriedade href “o link destino” e colocando em uma variavel
+      var link = $(this).attr('href');
+      $.ajax
+      ({
+        dataType: 'html',
+        url: link, //link da pagina que o ajax buscará
+        success: function(data)
+        {
+          $("#content").html(data).fadeIn(340); //Inserindo o retorno da pagina ajax
+        },
+        error: function(data){
+          $("#content").html("<center><p>ERRO ao carregar outra pagina</p></center>").fadeIn(300); //Em caso de erro ele exibe esta mensagem
+        }
+      }); 
+    
+    });
+  });
+  </script>   
+  
+  </body>
+</html>
